@@ -1,6 +1,6 @@
 ---
 name: video-ai-explainer-cam
-description: Dựng và render ra file MP4 hoàn chỉnh cho video dọc 9:16 kiểu "AI Explainer Cam" — hook bằng b-roll điện ảnh tối, presenter cầm mic nói, rồi chuyển sang nền kem–cam với thẻ trắng bo góc, badge cam, lưới icon đếm số, ma trận ô tô dần, hàng tick kiểm duyệt, khung chat AI gõ chữ, đường nối tự vẽ; bố cục split (đồ hoạ trên, presenter trong khung bo góc dưới); outro tên kênh chữ vàng nghiêng + cam trong vòng tròn + nút Follow; endcard thanh tìm kiếm glitch. Có phụ đề cụm 2–5 từ (2 kiểu), loá sáng chuyển cảnh, nhạc nền ducking, SFX tự sinh (pop, whoosh, click, ding, gõ phím, bùm). PHẢI dùng khi người dùng muốn làm video giới thiệu công cụ/AI/phần mềm/khoá học dạng talking-head + motion graphic, làm video giống video mẫu nền kem cam, video review tool AI, video TikTok giải thích có đồ hoạ thẻ trắng, hoặc upload clip nói chuyện và muốn "edit giống mẫu này". Cũng dùng khi cần decode/phân tích một video tham chiếu từng giây để dựng lại phong cách.
+description: Dựng và render ra file MP4 hoàn chỉnh cho video dọc 9:16 kiểu "AI Explainer Cam" — hook bằng b-roll điện ảnh tối, presenter cầm mic nói, rồi chuyển sang nền kem–cam với thẻ trắng bo góc, badge cam, lưới icon đếm số, ma trận ô tô dần, hàng tick kiểm duyệt, khung chat AI gõ chữ, đường nối tự vẽ; bố cục split (đồ hoạ trên, presenter trong khung bo góc dưới); outro tên kênh chữ vàng nghiêng + cam trong vòng tròn + nút Follow; endcard thanh tìm kiếm glitch. Tự CẮT ĐOẠN THỪA (khoảng lặng, từ đệm ờ/à/ừm, câu nói hỏng rồi nói lại, đoạn chỉ định) kèm phóng xen kẽ giấu vết cắt. Có phụ đề cụm 2–5 từ (2 kiểu), loá sáng chuyển cảnh, nhạc nền ducking, SFX tự sinh (pop, whoosh, click, ding, gõ phím, bùm). PHẢI dùng khi người dùng muốn làm video giới thiệu công cụ/AI/phần mềm/khoá học dạng talking-head + motion graphic, làm video giống video mẫu nền kem cam, video review tool AI, video TikTok giải thích có đồ hoạ thẻ trắng, hoặc upload clip nói chuyện và muốn "edit giống mẫu này", hoặc muốn cắt khoảng lặng / jump cut / bỏ chỗ nói vấp, nói lại trong clip quay thô. Cũng dùng khi cần decode/phân tích một video tham chiếu từng giây để dựng lại phong cách.
 ---
 
 # Video AI Explainer Cam
@@ -15,7 +15,8 @@ hiệu ứng, nhạc, SFX, chuẩn hoá âm lượng.
 ```
 scripts/
   decode_video.py      phân tích video mẫu: khung/giây, contact sheet, điểm cắt, âm lượng, đỉnh SFX
-  transcribe.py        (tuỳ chọn) tạo .srt tiếng Việt bằng faster-whisper, cụm 2–5 từ
+  transcribe.py        (tuỳ chọn) tạo .srt + JSON từng từ tiếng Việt bằng faster-whisper
+  cut.py               CẮT ĐOẠN THỪA: lặng, từ đệm, câu nói lại, đoạn thủ công → clip sạch + cutmap + srt mới
   render.py            dựng & xuất MP4 (numpy + Pillow + ffmpeg, không cần Chromium)
   sfx.py               tổng hợp SFX + nhạc pad dự phòng (không cần file ngoài, không vướng bản quyền)
   make_demo_assets.py  sinh clip/ảnh giả để chạy thử storyboard mẫu
@@ -36,15 +37,47 @@ ffmpeg -version | head -1 && python3 -c "import numpy, PIL; print('ok')"
 ## Quy trình
 
 ### 1. Nhận đầu vào
-- **Bắt buộc**: clip talking-head (`cam.mp4`) — giọng của clip này là trục thời gian cho cả video.
+- **Bắt buộc**: clip talking-head (quay thô `raw.mp4` → cắt ở bước 2 thành `cam.mp4`) — giọng của clip này là trục thời gian cho cả video.
 - Tuỳ chọn: 3–4 b-roll (hook đầu + CTA cuối), PNG nền trong (mascot, icon 3D, avatar,
   ảnh chụp màn hình sản phẩm), nhạc nền không lời, tên kênh + @handle.
 - Có video mẫu khác muốn bắt chước? Chạy `python3 scripts/decode_video.py ref.mp4 decode/`
   rồi **mở các `sheet_*.jpg` và `transitions/*.jpg` ra xem** trước khi viết storyboard.
 
-### 2. Phụ đề
-- Có `faster-whisper`: `python3 scripts/transcribe.py cam.mp4 subs.srt`.
-- Không có: nghe/đọc kịch bản, viết `captions` trong storyboard (render.py tự chia cụm).
+### 2. Cắt đoạn thừa (luôn làm với clip quay thô)
+Video mẫu cắt rất sát: giữa hai câu gần như không còn khoảng nghỉ, không có "ờ/à",
+không có câu nói hỏng. Làm theo thứ tự:
+
+```bash
+# a) nhận dạng giọng → phụ đề + mốc từng từ (cần faster-whisper)
+python3 scripts/transcribe.py raw.mp4 raw.srt --words raw_words.json
+# b) xem trước sẽ cắt gì — ĐỌC danh sách, kiểm tra không cắt nhầm ý quan trọng
+python3 scripts/cut.py raw.mp4 --words raw_words.json --dry-run
+# c) cắt thật
+python3 scripts/cut.py raw.mp4 -o cam.mp4 --words raw_words.json
+```
+
+Kết quả: `cam.mp4` (clip sạch), `cam.cutmap.json` (ánh xạ giây gốc → giây mới + lý do
+từng chỗ cắt), `cam.srt` (phụ đề đã khớp clip mới). Dùng `cam.mp4` làm `main`,
+`cam.srt` làm `captions`, và khai báo `"cutmap": "cam.cutmap.json"` trong storyboard để
+bộ dựng **tự đổi mức phóng 1,00 ↔ 1,07 ở mỗi chỗ cắt** (giấu vết jump cut, giống mẫu).
+
+| Cắt cái gì | Cách hoạt động | Tinh chỉnh |
+|---|---|---|
+| Khoảng lặng | năng lượng âm 20 ms, ngưỡng tự động (nền ồn + 10 dB) | `--threshold-db -38`, `--min-silence 0.35`, `--max-pause 0.12`, `--pad 0.08` |
+| Từ đệm | khớp từ trong JSON: ờ, ơ, à, ừ, ừm, ủa, hmm, uh, um… | `--fillers "kiểu là,nói chung"`, `--no-fillers` |
+| Nói lại | cụm ≥ 3 từ lặp lại trong 10 s → bỏ lần TRƯỚC, giữ lần SAU | `--no-retakes` |
+| Thủ công | đoạn người dùng chỉ ra (giây gốc) | `--remove "12.3-15,40-41.2"` |
+| Bắt buộc giữ | ưu tiên hơn mọi luật cắt | `--keep "0-2.5"` |
+
+- Không có faster-whisper: `cut.py raw.mp4 -o cam.mp4` vẫn cắt được **khoảng lặng**
+  (từ đệm và câu nói lại cần `--words`). Có SRT viết tay thì thêm `--srt raw.srt` để dời mốc.
+- Âm thanh mỗi mép cắt có fade 12 ms nên không bị tiếng "tách".
+- Giọng nói nhanh/hụt chữ đầu câu → tăng `--pad 0.12`. Nền ồn (quạt, xe) → đặt `--threshold-db` tay.
+- Luôn báo người dùng: gốc bao nhiêu giây → còn bao nhiêu, cắt bao nhiêu giây vì lý do gì.
+
+### 2b. Phụ đề
+- Đã chạy bước 2 → dùng luôn `cam.srt`.
+- Không có whisper: nghe/đọc kịch bản, viết `captions` trong storyboard (render.py tự chia cụm).
 - Luôn **soát chính tả tiếng Việt** sau khi tự động nhận dạng.
 
 ### 3. Viết storyboard — theo 8 phần của mẫu

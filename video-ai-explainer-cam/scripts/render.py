@@ -821,6 +821,11 @@ class Renderer:
         self.cam = None
         self.brolls = {}
         self.cam_grade = self.sb.get("cam_grade", "warm")
+        # cutmap.json do cut.py sinh ra → các mốc cắt trên timeline mới
+        self.jump_cuts = []
+        if self.sb.get("cutmap"):
+            cm = json.load(open(self.ctx.path(self.sb["cutmap"]), encoding="utf-8"))
+            self.jump_cuts = [m[2] for m in cm["map"][1:]]
 
     # ---------- nguồn hình ----------
     def cam_frame(self, t):
@@ -848,6 +853,10 @@ class Renderer:
             return z
         p = (t - seg["t0"]) / max(0.01, seg["t1"] - seg["t0"])
         zz = z[0] + (z[1] - z[0]) * ease_in_out(p)
+        # jump-cut: mỗi chỗ cắt đổi qua lại giữa 2 mức phóng để giấu vết cắt
+        if self.jump_cuts and seg.get("jumpcut_zoom", True) and seg.get("layout", "cam") == "cam":
+            k = sum(1 for c in self.jump_cuts if c <= t)
+            zz *= float(self.sb.get("jumpcut_zoom", 1.07)) if k % 2 else 1.0
         # punch-in: cú phóng nhanh tại các mốc nhấn mạnh
         for pt in seg.get("punch", []):
             q = (t - pt) / 0.18

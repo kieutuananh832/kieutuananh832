@@ -12,6 +12,8 @@ storyboard.
 | `fps` | 30 | |
 | `main` | — | clip talking-head, cung cấp **giọng cho cả video** + hình cho layout cam/split/outro |
 | `main_start` | 0 | bỏ qua N giây đầu của clip |
+| `cutmap` | — | file `.cutmap.json` từ `cut.py` → bật phóng xen kẽ ở mỗi chỗ cắt (layout `cam`) |
+| `jumpcut_zoom` | 1.07 | mức phóng xen kẽ; tắt cho 1 đoạn bằng `"jumpcut_zoom": false` trong đoạn đó |
 | `cam_grade` | `warm` | `warm` / `none` |
 | `music` | — | đường dẫn nhạc (tự lặp), hoặc `"auto_pad"` (nhạc pad tự sinh), bỏ trống = không nhạc |
 | `music_db` / `sfx_db` / `voice_gain` | −22 / −8 / 1.0 | mức trộn |
