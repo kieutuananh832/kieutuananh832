@@ -1,0 +1,184 @@
+{
+  "_ghi_chu": "Storyboard mẫu dựng lại đúng CẤU TRÚC 78 giây của video tham chiếu (hook b-roll → presenter → đồ hoạ → split → CTA → outro → endcard). Thay nội dung chữ, ảnh, clip bằng của bạn. Mọi mốc thời gian là giây trên timeline = giây của file 'main'.",
+  "size": [720, 1280],
+  "fps": 30,
+  "main": "demo/cam.mp4",
+  "cam_grade": "warm",
+  "music": "auto_pad",
+  "music_db": -24,
+  "sfx_db": -9,
+  "lufs": -14,
+  "brand": { "title": "TÊN KÊNH AI", "handle": "@tenkenh", "follow_text": "Follow" },
+  "caption_max_words": 5,
+
+  "captions": [
+    { "t0": 0.0,  "t1": 1.4,  "text": "anh em nào" },
+    { "t0": 1.4,  "t1": 2.5,  "text": "có một cái profile xịn" },
+    { "t0": 2.5,  "t1": 3.6,  "text": "mà thấy đuối quá" },
+    { "t0": 3.6,  "t1": 4.75, "text": "thì vô đây" },
+    { "t0": 4.75, "t1": 5.9,  "text": "tin vui là công cụ" },
+    { "t0": 5.9,  "t1": 7.4,  "text": "vừa mới ra mắt" },
+    { "t0": 7.4,  "t1": 8.8,  "text": "đổi cuộc chơi luôn" },
+    { "t0": 8.8,  "t1": 10.2, "text": "giờ anh em đã có thể" },
+    { "t0": 10.2, "t1": 12.6, "text": "kết nối thẳng vào tài khoản" },
+    { "t0": 12.6, "t1": 15.4, "text": "để nó tự vận hành từ A tới Z" },
+    { "t0": 15.4, "t1": 17.4, "text": "và điều quan trọng á" },
+    { "t0": 17.4, "t1": 18.8, "text": "là miễn phí nha" },
+    { "t0": 18.8, "t1": 21.0, "text": "nó không phải một công cụ" },
+    { "t0": 21.0, "t1": 23.4, "text": "mà là mười một công cụ" },
+    { "t0": 23.4, "t1": 24.8, "text": "mỗi cái lo một khâu riêng" },
+    { "t0": 24.8, "t1": 27.4, "text": "có cái chuyên lên nội dung" },
+    { "t0": 27.4, "t1": 30.0, "text": "với hai mươi mốt khung viral" },
+    { "t0": 30.0, "t1": 33.0, "text": "có cái lo tương tác" },
+    { "t0": 33.0, "t1": 34.8, "text": "kéo traffic về" },
+    { "t0": 34.8, "t1": 37.6, "text": "rồi lên lịch, trả lời bình luận" },
+    { "t0": 37.6, "t1": 38.7, "text": "nhưng mà cái chỗ này" },
+    { "t0": 38.7, "t1": 39.7, "text": "mới đỉnh nhất nè" },
+    { "t0": 39.7, "t1": 42.0, "text": "công cụ làm cho giống người" },
+    { "t0": 42.0, "t1": 44.0, "text": "bài AI hay bị dính" },
+    { "t0": 44.0, "t1": 47.5, "text": "mấy dấu hiệu đặc trưng" },
+    { "t0": 47.5, "t1": 49.0, "text": "nhưng công cụ này á" },
+    { "t0": 49.0, "t1": 52.0, "text": "nó sẽ quét, xoá mọi dấu vết" },
+    { "t0": 52.0, "t1": 55.0, "text": "rồi chạy qua năm lớp kiểm duyệt" },
+    { "t0": 55.0, "t1": 57.5, "text": "nhìn y chang người thật viết" },
+    { "t0": 57.5, "t1": 60.0, "text": "mình thấy cái này đáng giá" },
+    { "t0": 60.0, "t1": 62.0, "text": "cho anh em làm thương hiệu" },
+    { "t0": 62.0, "t1": 64.0, "text": "mà không có nhiều thời gian" },
+    { "t0": 64.0, "t1": 65.5, "text": "cách cài thì dễ ợt" },
+    { "t0": 65.5, "t1": 67.2, "text": "anh em chỉ cần dán link vô" },
+    { "t0": 67.2, "t1": 68.9, "text": "rồi kêu nó cài là chạy" },
+    { "t0": 68.9, "t1": 70.4, "text": "nếu anh em muốn lấy bộ này" },
+    { "t0": 70.4, "t1": 71.4, "text": "thì vào trang của mình" },
+    { "t0": 71.4, "t1": 73.9, "text": "để lấy nha" }
+  ],
+
+  "segments": [
+    { "t0": 0.0, "t1": 1.4, "layout": "broll", "src": "demo/broll1.mp4", "grade": "cinematic_dark", "zoom": [1.0, 1.12] },
+    { "t0": 1.4, "t1": 3.5, "layout": "broll", "src": "demo/broll2.mp4", "grade": "cinematic_dark", "zoom": [1.05, 1.15] },
+    { "t0": 3.5, "t1": 4.75, "layout": "broll", "src": "demo/broll3.mp4", "grade": "cinematic_dark", "zoom": [1.0, 1.1] },
+
+    { "t0": 4.75, "t1": 8.8, "layout": "cam", "zoom": [1.0, 1.08], "punch": [5.9],
+      "elements": [
+        { "type": "image", "src": "demo/mascot.png", "x": 0.52, "y": 0.42, "w": 0.6, "t0": 6.0, "anim": "pop", "float": 4,
+          "scale_to": [8.0, 1.15, 0.4] },
+        { "type": "cursor", "from": [0.85, 0.85], "to": [0.55, 0.62], "t0": 7.6, "dur": 0.6 }
+      ] },
+
+    { "t0": 8.8, "t1": 15.5, "layout": "graphic",
+      "elements": [
+        { "type": "image", "src": "demo/mascot.png", "x": 0.25, "y": 0.2, "w": 0.24, "t0": 8.8, "anim": "zoom_in", "float": 5, "shadow": 0 },
+        { "type": "badge", "text": "VŨ KHÍ MỚI", "icon": "star", "style": "orange", "size": 16, "x": 0.25, "y": 0.27, "t0": 9.1 },
+        { "type": "card", "x": 0.5, "y": 0.5, "w": 0.66, "h": 0.17, "t0": 9.0, "anim": "slide_up",
+          "title": "Tài khoản", "icon": "demo/app_icon.png", "avatar": "demo/avatar.png", "lines": 2,
+          "label": [[0, "PROFILE XỊN"], [12.8, "TỰ VẬN HÀNH A–Z"]],
+          "progress": [0.15, 1.0, 12.8, 14.6] },
+        { "type": "connector", "from": [0.36, 0.2], "to": [0.78, 0.43], "t0": 10.6, "dur": 0.7, "label": "KẾT NỐI" }
+      ] },
+
+    { "t0": 15.5, "t1": 19.8, "layout": "graphic", "in": "dissolve",
+      "elements": [
+        { "type": "image", "src": "demo/screenshot.png", "x": 0.5, "y": 0.28, "w": 0.76, "t0": 15.5, "anim": "zoom_in", "radius": 14,
+          "scale_to": [19.2, 0.9, 0.5] },
+        { "type": "title", "text": "TÊN BỘ CÔNG CỤ", "size": 34, "x": 0.5, "y": 0.46, "t0": 15.7, "anim": "fade" },
+        { "type": "badge", "text": "MIỄN PHÍ", "icon": "check", "style": "orange", "size": 18, "x": 0.5, "y": 0.52, "t0": 17.5 }
+      ] },
+
+    { "t0": 19.8, "t1": 24.8, "layout": "graphic",
+      "elements": [
+        { "type": "image", "src": "demo/screenshot.png", "x": 0.5, "y": 0.1, "w": 0.32, "t0": 19.8, "anim": "fade", "radius": 8 },
+        { "type": "grid", "x": 0.5, "y": 0.33, "cols": 4, "tile": 0.15, "t0": 20.0, "stagger": 0.28,
+          "items": [
+            { "img": "demo/tile1.png", "label": "/post" }, { "img": "demo/tile2.png", "label": "/comment" },
+            { "img": "demo/tile3.png", "label": "/reply" }, { "img": "demo/tile4.png", "label": "/profile" },
+            { "img": "demo/tile5.png", "label": "/plan" }, { "img": "demo/tile6.png", "label": "/human" },
+            { "img": "demo/tile7.png", "label": "/carousel" }, { "img": "demo/tile8.png", "label": "/repurpose" },
+            { "img": "demo/tile9.png", "label": "/dm" }, { "img": "demo/tile10.png", "label": "/inbox" },
+            { "img": "demo/tile11.png", "label": "/audit" } ],
+          "counter": { "text": "CÔNG CỤ RIÊNG BIỆT", "y": 0.64 } }
+      ] },
+
+    { "t0": 24.8, "t1": 37.6, "layout": "split", "cam_top": 0.6, "anchor": [0.5, 0.36],
+      "elements": [
+        { "type": "card", "x": 0.3, "y": 0.2, "w": 0.38, "h": 0.24, "t0": 25.2, "t1": 34.6, "anim": "pop",
+          "header_text": " ", "lines": 0, "move": [33.4, 0.3, 0.12, 0.5] },
+        { "type": "image", "src": "demo/megaphone.png", "x": 0.3, "y": 0.15, "w": 0.16, "t0": 25.3, "t1": 34.6, "anim": "pop", "shadow": 0, "move": [33.4, 0.3, 0.07, 0.5] },
+        { "type": "title", "text": "MẢNG NỘI DUNG", "size": 17, "x": 0.3, "y": 0.215, "t0": 25.4, "t1": 34.6, "anim": "fade", "move": [33.4, 0.3, 0.135, 0.5] },
+        { "type": "meter", "x": 0.3, "y": 0.27, "cols": 7, "rows": 3, "cell": 16, "t0": 25.5, "t1": 34.6, "anim": "fade",
+          "t_fill": 27.4, "fill_dur": 1.0, "label": "21 KHUNG VIRAL", "move": [33.4, 0.3, 0.19, 0.5] },
+        { "type": "card", "x": 0.72, "y": 0.2, "w": 0.38, "h": 0.24, "t0": 30.0, "t1": 34.6, "anim": "slide_left",
+          "header_text": "TƯƠNG TÁC", "lines": ["", "", ""], "move": [33.4, 0.72, 0.12, 0.5] },
+        { "type": "badge", "text": "TRAFFIC", "icon": "trend", "style": "orange", "size": 15, "x": 0.76, "y": 0.29, "t0": 32.9, "t1": 34.6, "move": [33.4, 0.76, 0.21, 0.5] },
+        { "type": "card", "x": 0.3, "y": 0.16, "w": 0.36, "h": 0.17, "t0": 34.9, "t1": 37.4, "anim": "pop", "lines": 0 },
+        { "type": "image", "src": "demo/calendar.png", "x": 0.3, "y": 0.13, "w": 0.14, "t0": 35.0, "t1": 37.4, "anim": "pop", "shadow": 0 },
+        { "type": "title", "text": "LÊN LỊCH\nĐĂNG BÀI", "size": 16, "x": 0.3, "y": 0.205, "t0": 35.0, "t1": 37.4, "anim": "fade" },
+        { "type": "card", "x": 0.72, "y": 0.16, "w": 0.36, "h": 0.17, "t0": 35.6, "t1": 37.4, "anim": "pop", "lines": 1 },
+        { "type": "title", "text": "TỰ TRẢ LỜI\nBÌNH LUẬN", "size": 16, "x": 0.72, "y": 0.205, "t0": 35.7, "t1": 37.4, "anim": "fade" }
+      ] },
+
+    { "t0": 37.6, "t1": 39.7, "layout": "cam", "zoom": [1.04, 1.1], "punch": [38.7] },
+
+    { "t0": 39.7, "t1": 57.5, "layout": "split", "cam_top": 0.6,
+      "elements": [
+        { "type": "image", "src": "demo/avatar3d.png", "x": 0.5, "y": 0.11, "w": 0.2, "t0": 39.8, "t1": 41.8, "anim": "zoom_in", "shadow": 0 },
+        { "type": "badge", "text": "ĐỈNH NHẤT", "icon": "star", "style": "dark", "size": 14, "x": 0.5, "y": 0.18, "t0": 40.0, "t1": 41.8 },
+        { "type": "title", "text": "HUMANIZER", "size": 32, "x": 0.5, "y": 0.235, "t0": 40.6, "t1": 41.8, "anim": "drop" },
+
+        { "type": "card", "x": 0.5, "y": 0.13, "w": 0.74, "h": 0.12, "t0": 42.0, "t1": 53.0, "anim": "slide_up",
+          "title": "BÀI VIẾT CỦA AI", "icon": "demo/app_icon.png", "lines": 4 },
+        { "type": "badge", "text": "—", "icon": null, "style": "light", "size": 11, "x": 0.45, "y": 0.155, "t0": 43.0, "t1": 50.0 },
+        { "type": "badge", "text": "—", "icon": null, "style": "light", "size": 11, "x": 0.62, "y": 0.172, "t0": 43.3, "t1": 50.0 },
+        { "type": "badge", "text": "Từ AI", "icon": null, "style": "light", "size": 11, "x": 0.3, "y": 0.164, "t0": 45.0, "t1": 50.0 },
+        { "type": "badge", "text": "Từ AI", "icon": null, "style": "light", "size": 11, "x": 0.72, "y": 0.183, "t0": 45.3, "t1": 50.0 },
+        { "type": "badge", "text": "NHÌN LÀ BIẾT MÁY VIẾT", "icon": null, "style": "dark", "size": 13, "x": 0.5, "y": 0.215, "t0": 46.6, "t1": 53.0 },
+        { "type": "card", "x": 0.5, "y": 0.11, "w": 0.66, "h": 0.12, "t0": 53.0, "t1": 57.3, "anim": "fade",
+          "title": "NHƯ NGƯỜI THẬT VIẾT", "icon": "demo/avatar.png", "lines": 3 },
+        { "type": "steps", "n": 5, "x": 0.5, "y": 0.235, "t0": 53.4, "t1": 57.3, "t_check": 54.6, "anim": "fade",
+          "label": "5 LỚP KIỂM DUYỆT", "label_done": "ĐÃ QUA KIỂM DUYỆT" }
+      ] },
+
+    { "t0": 57.5, "t1": 64.0, "layout": "split", "cam_top": 0.6,
+      "elements": [
+        { "type": "badge", "text": "ĐÁNG GIÁ", "icon": "star", "style": "orange", "size": 14, "x": 0.5, "y": 0.06, "t0": 57.8, "move": [60.8, 0.32, 0.06, 0.5] },
+        { "type": "image", "src": "demo/avatar3d.png", "x": 0.5, "y": 0.14, "w": 0.22, "t0": 58.0, "anim": "pop", "shadow": 0, "move": [60.8, 0.32, 0.14, 0.5] },
+        { "type": "badge", "text": "THƯƠNG HIỆU CÁ NHÂN", "icon": null, "style": "orange", "size": 18, "x": 0.5, "y": 0.235, "t0": 59.8, "move": [60.8, 0.32, 0.235, 0.5] },
+        { "type": "card", "x": 0.74, "y": 0.15, "w": 0.34, "h": 0.15, "t0": 60.9, "anim": "slide_left", "lines": 0, "label": "GÕ CẢ NGÀY" },
+        { "type": "image", "src": "demo/keyboard.png", "x": 0.74, "y": 0.13, "w": 0.14, "t0": 61.0, "anim": "pop", "shadow": 0 },
+        { "type": "badge", "text": "KHÔNG CẦN", "icon": "check", "style": "orange", "size": 13, "x": 0.76, "y": 0.075, "t0": 62.0 }
+      ] },
+
+    { "t0": 64.0, "t1": 68.9, "layout": "split", "cam_top": 0.6,
+      "elements": [
+        { "type": "badge", "text": "DỄ ỢT", "icon": "star", "style": "orange", "size": 15, "x": 0.5, "y": 0.035, "t0": 64.1 },
+        { "type": "chat", "x": 0.5, "y": 0.15, "w": 0.84, "h": 0.18, "t0": 64.3, "anim": "zoom_in", "header": "Trợ lý AI",
+          "placeholder": "Nhắn cho trợ lý...",
+          "messages": [
+            { "t": 65.6, "role": "user", "tag": "LINK", "text": "Cài bộ công cụ này nha" },
+            { "t": 66.6, "role": "bot", "text": "Đang cài 11 công cụ..." },
+            { "t": 67.0, "role": "bot", "color": "green", "text": "✓ /post  ✓ /comment  ✓ /reply  +8" },
+            { "t": 67.9, "role": "ok", "text": "✓ Xong! Bộ công cụ đã sẵn sàng" } ] }
+      ] },
+
+    { "t0": 68.9, "t1": 71.1, "layout": "broll", "src": "demo/broll4.mp4", "grade": "orange_glow", "zoom": [1.0, 1.1],
+      "elements": [
+        { "type": "image", "src": "demo/screenshot.png", "x": 0.5, "y": 0.42, "w": 0.62, "t0": 69.4, "t1": 70.9, "anim": "zoom_in", "radius": 10, "float": 6 }
+      ] },
+
+    { "t0": 71.1, "t1": 73.9, "layout": "outro" },
+    { "t0": 73.9, "t1": 78.0, "layout": "endcard", "logo": "demo/logo.png", "name": "" }
+  ],
+
+  "transitions": [
+    { "t": 1.4,  "type": "flash", "dur": 0.2, "sfx_gain": 0.5 },
+    { "t": 3.5,  "type": "flash", "dur": 0.2, "sfx_gain": 0.5 },
+    { "t": 4.75, "type": "flash_red", "dur": 0.35 },
+    { "t": 8.8,  "type": "flash", "dur": 0.3 },
+    { "t": 24.8, "type": "flash", "dur": 0.25 },
+    { "t": 39.7, "type": "flash", "dur": 0.25 },
+    { "t": 68.9, "type": "flash", "dur": 0.3, "sfx": "riser", "sfx_gain": 0.6 },
+    { "t": 71.1, "type": "lightleak", "dur": 0.45 }
+  ],
+
+  "sfx": [
+    { "t": 0.0, "name": "whoosh", "gain": 0.4 }
+  ]
+}

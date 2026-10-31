@@ -1,0 +1,4 @@
+video-ai-explainer-cam/examples/demo/
+__pycache__/
+*.pyc
+*.mp4
