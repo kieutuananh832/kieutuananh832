@@ -1,4 +1,4 @@
-video-ai-explainer-cam/examples/demo/
+.claude/skills/video-ai-explainer-cam/examples/demo/
 __pycache__/
 *.pyc
 *.mp4
